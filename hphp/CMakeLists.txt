@@ -87,6 +87,7 @@ add_subdirectory(parser)
 
 add_subdirectory(runtime)
 add_subdirectory(runtime/ext)
+add_subdirectory(runtime/shim)
 add_subdirectory(runtime/ext_hhvm)
 if (ENABLE_ZEND_COMPAT)
   add_subdirectory(runtime/ext_zend_compat)

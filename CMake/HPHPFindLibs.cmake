@@ -109,6 +109,13 @@ if (LibXed_INCLUDE_DIR AND LibXed_LIBRARY)
   add_definitions("-DHAVE_LIBXED")
 endif()
 
+#libpfm
+find_package(Libpfm)
+if (Libpfm_INCLUDE_DIR AND Libpfm_LIBRARY)
+  include_directories(${Libpfm_INCLUDE_DIR})
+  add_definitions("-DHAVE_LIBPFM")
+endif()
+
 # CURL checks
 find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
@@ -452,6 +459,10 @@ macro(hphp_link target)
 
   if (LibXed_LIBRARY)
     target_link_libraries(${target} ${LibXed_LIBRARY})
+  endif()
+
+  if (Libpfm_LIBRARY)
+    target_link_libraries(${target} ${Libpfm_LIBRARY})
   endif()
 
   if (LIBINOTIFY_LIBRARY)
